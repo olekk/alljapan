@@ -1,0 +1,87 @@
+
+{ 
+    "dId": "2",
+    "matches": [{
+			"st" : "http://livescores.flightscopetennis.com/stats/1.html",
+	        "cId" : "1",
+			"cN" : "Court 1",
+			"eN" : "Test event",
+			"mN": "final",
+			"sA" : "true",
+			"sB" : "false",
+            "tA": {
+                "p1": {
+                    "fN": "ósmy",
+                    "lN": "maj",
+                    "cc": "pol"
+                },
+                "p2": {
+                    "fN": "",
+                    "lN": "Ko",
+                    "cc": "pol"
+                }
+            },
+           "tB": {
+                "p1": {
+                    "fN": "Jurek",
+                    "lN": "Kurek",
+                    "cc": "pol"
+                },
+                "p2": {
+                    "fN": "Jerzy",
+                    "lN": "Swiezy",
+                    "cc": "pol"
+                }
+            },
+			"s1A": "6",
+            "s1B": "4",
+            "s2A": "6",
+            "s2B": "4",
+            "s3A": "",
+            "s3B": "",
+            "pA" : "",
+			"pB" : ""
+        },
+        {
+           "st" : "http://livescores.flightscopetennis.com/stats/1.html",
+	        "cId" : "2",
+			"cN" : "Court 2",
+			"eN" : "Test event",
+			"mN": "final",
+			"sA" : "true",
+			"sB" : "false",
+            "tA": {
+                "p1": {
+                    "fN": "Szymon",
+                    "lN": "Kuc",
+                    "cc": "pol"
+                },
+                "p2": {
+                    "fN": "Kamil",
+                    "lN": "Ko",
+                    "cc": "pol"
+                }
+            },
+           "tB": {
+                "p1": {
+                    "fN": "Jurek",
+                    "lN": "Kurek",
+                    "cc": "pol"
+                },
+                "p2": {
+                    "fN": "Jerzy",
+                    "lN": "Swiezy",
+                    "cc": "pol"
+                }
+            },
+			"s1A": "6",
+            "s1B": "4",
+            "s2A": "6",
+            "s2B": "4",
+            "s3A": "",
+            "s3B": "",
+            "pA" : "勝者",
+			"pB" : "棄権"
+        }
+    ]
+}

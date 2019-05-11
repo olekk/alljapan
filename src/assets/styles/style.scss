@@ -1,0 +1,520 @@
+$colors: (
+    primary: #15367c,
+    document-backgruond: #59595a1a,
+    result-background: #06214e,
+    match-item-top-wrapper-color: #9fa5aa,
+    pink-font: #d90f82,
+    top-wrapper-upcoming: #da1f7e,
+    light-gray: #e0e0e0,
+);
+
+$fonts: (
+    status-font: ('IBM Plex Sans', sans-serif),
+);
+
+@function color($color-name){
+    @return map-get($colors, $color-name )
+};
+
+@function font($font-name){
+    @return map-get($fonts, $font-name )
+};
+
+
+$gradient: url(/src/assets/img/nav-copy-2.png);
+
+$tablet: 540px;
+$laptop: 851px;
+$small-desktop: 1300px;
+$desktop: 1900px;
+
+@mixin tablet {
+    @media (min-width: #{$tablet}){
+        @content;
+    }
+}
+@mixin laptop {
+    @media (min-width: #{$laptop}){
+        @content;
+    }
+}
+@mixin small-desktop {
+    @media (min-width: #{$small-desktop}){
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: #{$desktop}){
+        @content;
+    }
+}
+
+b
+{
+    font-weight: inherit;
+    vertical-align: super;
+    font-size: 0.7em;
+}
+
+body{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-color: color(document-backgruond);
+    padding-top: calc(82px + 8vw);
+}
+body * {
+   padding: 0px;
+    margin: 0px;
+}
+
+.match-item-wrapper{
+    background-color: color(result-background);
+    text-transform: uppercase;
+    font-family: font(status-font);
+    box-shadow: 0px 1px 4px 0.5px rgba(0,0,0,0.75);
+    font-size: 14px;
+    height: 160px;
+    display: grid;
+
+    @include tablet{
+        height: 180px;
+    }
+    @include laptop{
+        height: 170px;
+    }
+
+    .match-item-top-wrapper{
+        color: #fff;
+        background-color: #fff;
+        height: 20px;
+        line-height: 20px;
+        padding-left: 5%;
+        font-style: italic;
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+
+        .clippy-background{
+            clip-path: polygon(0 0, 27% 0, 26% 100%, 0 100%);
+            background-color: color(match-item-top-wrapper-color);
+            position: absolute;
+            left: 0;
+            height: 20px;
+            width: 100%;  
+        }
+        .status-upcoming {
+            background-color: color(top-wrapper-upcoming);
+        }
+        .match-status{
+            color: color(primary);
+            z-index: 1;
+            @include laptop{
+                color: #fff;
+            }
+        }
+        .live{
+            color: color(primary);
+        }
+        .match-item-court{
+            z-index: 1;
+        }
+        .status-live{
+            background-color: color(primary);
+        }
+    }
+
+    .match-item-info{
+        padding-left: 6px;
+        padding-right: 6px;
+        color: #fff;
+        font-size: 14px;
+        align-items: center;
+    }
+    .live-item-info{
+        color: color(primary);
+    }
+    .lost{
+        opacity: 0.6;
+    }
+    .player-info{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        @include tablet{
+            font-size: 18px;
+        }
+        @include laptop{
+            font-size: 16px;
+        }
+
+        .country-code{
+            justify-self: end;
+            font-style: italic;
+            font-size: 13px;
+            padding-right: 10px;
+        }
+    }
+
+    .beat{
+        color: color(pink-font);
+        font-style: italic;
+        padding-bottom: 6px;
+        padding-top: 6px;
+    }
+    .match-item-result{
+        padding-top: 3px;
+        font-size: 15px;
+        font-weight: 700;
+        color: color(pink-font);
+        @include tablet{
+            font-size: 20px;
+        }
+        @include laptop{
+            font-size: 18px;
+        }
+    }
+    .score-team > * {
+        z-index: 1;
+        margin-top: 4px;
+        height: 80%;
+    }
+    .score-team {
+        display: grid;
+        grid-template-columns: 1fr 3fr 4fr;
+        font-size: 18px;
+        letter-spacing: 2px;
+
+        @include tablet{
+            font-size: 22px;
+        }
+        @include laptop{
+            font-size: 20px;
+            letter-spacing: 0px;
+        }
+        .left-stripA{
+            clip-path: polygon(0 0, 92% 0, 78% 100%, 0 100%);
+            background-color: color(light-gray);
+        }
+        .left-stripB{
+            clip-path: polygon(0 0, 96% 0, 83% 100%, 0 100%);
+            background-color: color(pink-font);
+        }
+        .right-stripA{
+            clip-path: polygon(4% 0, 100% 0, 100% 100%, 0 100%);
+            background-color: color(light-gray);
+        }
+        .right-stripB{
+            clip-path: polygon(4% 0, 100% 0, 100% 100%, 0 100%);
+            background-color: color(pink-font);
+        }
+        .scores{
+            margin: 0px;
+            height: 100%;
+            text-align: center;
+        }
+    }
+}
+
+
+.wrapper-live{
+    background-color: #fff;
+}
+.player-info-live:first-of-type{
+    margin-bottom: 12px;
+}
+.player-info-live:last-of-type{
+    margin-top: 12px;
+}
+.wrapper-upcoming{
+    background-color: color(primary);
+}
+
+.mobile-court-view{
+    @include laptop{
+        display: none;
+    }
+}
+.bold{
+    font-weight: 700;
+    letter-spacing: 0px;
+}
+
+.column{
+    margin-top: 1em;
+    display: grid;
+    grid-gap: 1em;
+}
+
+#table-container{
+    display: grid;
+    justify-content: center;
+    grid-gap: 1em;
+
+    @include laptop{
+        grid-template-columns: 40% 40%;
+    }
+    @include small-desktop{
+        grid-template-columns: 30% 30% 30%; 
+    }
+    @include desktop{
+        grid-template-columns: 20% 20% 20% 20%;
+    }
+}
+
+
+.live{
+    color: color(primary) !important;
+}
+header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    z-index: 100;
+    display: grid;
+    box-shadow: 0px 14px 15px -14px rgba(0,0,0,0.75);
+    grid-template-areas: "l l l l l l l l l l"
+                         "d d d d d d d d d d"
+                         "c c c c c c c c c c";
+    align-content: center;
+    background-color: white;
+
+}
+
+.header-logo {
+    width: 100%;
+    justify-content: center;
+    background: none;
+    grid-area: l;
+    text-align: center;
+    overflow: auto;
+}
+
+.navbar-day{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    z-index: 10;
+    height: 80vh;
+    grid-auto-rows: 3em;
+    border: none;
+    justify-content: center;
+    align-self: center;
+    grid-area: d;
+    
+    background-color: #fff;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    @include laptop{
+        overflow: hidden;
+        width: 100vw;
+        padding-right: 50px;
+        z-index: 0;
+        width: 100%;
+        height: 52px;
+        display: flex;
+        flex-direction: row;
+        border-top: solid 2px #303c45;
+        li:first-of-type{
+            margin-right: 40px; 
+            width: 200px !important;
+        }
+        
+    }
+    li:first-of-type{
+        width: 100%;
+        color: color(pink-font);
+        flex-basis: initial;
+        flex-grow: 0;
+    }
+    @include desktop{
+        grid-template-columns: repeat(auto-fit, minmax(10%, 10%));
+    }
+    position: relative;
+    i 
+    {
+        width: 40px;
+        position: absolute;
+        top: 0; 
+        left: 200px;
+        &:nth-of-type(2)
+        {
+            left: calc(100vw - 50px);
+        }
+    }
+    
+}
+
+.navbar-day-elements{
+    cursor: pointer;
+    color: color(primary);
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: transparent;
+    letter-spacing: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 8;
+    padding: 10px;
+    box-sizing: border-box;
+    
+    @include laptop{
+        flex-basis: 12.5%;
+        color: #9c9c9c;
+        flex-grow: 1;
+    }
+} 
+
+.choosen-navbar-day-element{
+    border: none !important;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    z-index: 11;
+    color: #da1f7e;
+    @include laptop{
+        border: #da1f7e solid 4px !important;
+        height: calc(100% - 8px);
+    }
+    margin-top: 0;
+} 
+
+.change-day{
+    flex-basis: 5%;
+    background-color: transparent;
+    color: #9c9c9c;
+    font-size: 20px;
+    z-index: 10;
+    text-align: center;
+    padding-top: 15px;
+    box-sizing: border-box;
+    width: 20%;
+    height: 50px;
+    cursor: pointer;
+
+    &:hover
+    {
+        color: #000;
+    }
+}
+
+.court-holder{
+    display: none;
+    @include laptop{
+        color: #da1f7e; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 30px;
+        grid-area: c;
+        background-color: #fff;
+    }
+}
+
+.courts{
+    justify-content: center;
+    align-self: center;
+    list-style: none;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 50%);
+    position: relative;
+    margin: 0;
+    padding: 0;
+    @include small-desktop{
+        grid-template-columns: repeat(auto-fit, 33.3%);
+    }
+    @include desktop{
+        grid-template-columns: repeat(auto-fit, 25%);
+    }
+}
+
+.logo{
+    width: 100%;
+}
+
+.mobile-open-day-holder
+{
+    width: 100vw;
+    font-size: 1.5em;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    .menu-icon
+    {
+        flex-grow: 0;
+        padding-top: 10px;
+    }
+    .mobile-choosen-day-name
+    {
+        text-align: center;
+        flex-grow: 1;
+    }
+}
+
+.court{
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #da1f7e;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.change-court{
+    background-color: #fff;
+    z-index: 10;
+    text-align: center;
+    width: 80px;
+    height: 20px;
+    cursor: pointer;
+}
+
+
+.wrapper{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: white; 
+    top: 0vh;
+    left: 0;
+    z-index: 90;
+    
+    .navbar-day-wrapper{
+        margin: auto;
+        width: 90vw;
+        @include laptop{
+            display: none;
+        }
+
+        .mobile-day-list-header{
+            margin-top: 2em;
+            display: block;
+            height: 3em;
+            background-color: #fff;
+            border-bottom: solid 3px #303c45;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include laptop{
+                display: none;
+            }
+            position: relative;
+            i {
+                font-size: 40px;
+                float: right;
+                position: absolute;
+                right: 0;
+                &:active
+                {
+                    color: red;
+                }
+            }
+        }
+    }
+}
+
+
