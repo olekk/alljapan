@@ -1,0 +1,2 @@
+# alljapan
+mirror
