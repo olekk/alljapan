@@ -46,7 +46,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "load-json-file": "^6.0.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "parse-json": "^4.0.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
